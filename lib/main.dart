@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gck_mock/screens/login_screen.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:gck_mock/secrets.dart' as secrets;
 
-void main() {
+Future<void> main() async {
+  await Supabase.initialize(
+    url: secrets.supabase,
+    anonKey: secrets.supaKey,
+  );
+
   runApp(const MyApp());
 }
 
